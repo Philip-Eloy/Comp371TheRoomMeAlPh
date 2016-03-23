@@ -37,7 +37,7 @@ public:
 	glm::vec3 Up;
 	glm::vec3 Right;
 	glm::vec3 WorldUp;
-	// Eular Angles
+	// Euler Angles
 	GLfloat Yaw;
 	GLfloat Pitch;
 	// Camera options
@@ -76,6 +76,7 @@ public:
 		GLfloat velocity = this->MovementSpeed * deltaTime;
 		if (direction == FORWARD)
 			this->Position += this->Front * velocity;
+			
 		if (direction == BACKWARD)
 			this->Position -= this->Front * velocity;
 		if (direction == LEFT)

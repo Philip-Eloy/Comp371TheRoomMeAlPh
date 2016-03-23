@@ -23,7 +23,7 @@
 #include "Model.h"
 #include "Camera.h"
 #include "Shader.h"
-
+#include "Thing.h"
 
 
 //using namespace std;
@@ -40,14 +40,23 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void Do_Movement();
 
+void DrawHere(Model* model, Shader* shader);
+void DrawAll();
+
 // Camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 0.0f, 0.0f));
 bool keys[1024];
+bool key1[1024]; //keys that were pressed then released.
 GLfloat lastX = 400, lastY = 300;
 bool firstMouse = true;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
+
+
+std::vector<Thing*> thingz;
+
+
 
 // The MAIN function, from here we start our application and run our Game loop
 int main()
@@ -84,7 +93,11 @@ int main()
 	Shader shader("../Source/model_loading.vs", "../Source/model_loading.frag");
 
 	// Load models
-	Model ourModel("../Source/nanosuit.obj");
+	Model ourModel("../Source/mesa.obj");
+
+	//Thing thing(&ourModel, &shader, camera);
+
+	//thingz.push_back(&thing);
 
 	// Draw in wireframe
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -100,6 +113,8 @@ int main()
 		// Check and call events
 		glfwPollEvents();
 		Do_Movement();
+		DrawHere(&ourModel, &shader);
+
 
 		// Clear the colorbuffer
 		glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
@@ -113,11 +128,14 @@ int main()
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
 		// Draw the loaded model
-		glm::mat4 model;
-		model = glm::translate(model, glm::vec3(0.0f, -1.75f, 0.0f)); // Translate it down a bit so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// It's a bit too big for our scene, so scale it down
-		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		ourModel.Draw(shader);
+		//glm::mat4 model;
+		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -50.0f)); // Translate it down a bit so it's at the center of the scene
+		//model = glm::scale(model, glm::vec3(0.2f));	// It's a bit too big for our scene, so scale it down
+		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		//ourModel.Draw(shader);
+		
+
+		DrawAll();
 
 		// Swap the buffers
 		glfwSwapBuffers(window);
@@ -128,6 +146,23 @@ int main()
 }
 
 #pragma region "User input"
+
+void DrawHere(Model* model, Shader* shader)
+{
+	if (key1[GLFW_KEY_ENTER])
+	{
+		key1[GLFW_KEY_ENTER] = false;
+		thingz.push_back(new Thing(model, shader, camera, 30.0f, 0.18));
+	}
+}
+
+void DrawAll()
+{
+	for (int i = 0; i < thingz.size(); i++)
+	{
+		thingz[i]->draw();
+	}
+}
 
 // Moves/alters the camera positions based on user input
 void Do_Movement()
@@ -143,6 +178,7 @@ void Do_Movement()
 		camera.ProcessKeyboard(RIGHT, deltaTime);
 }
 
+
 // Is called whenever a key is pressed/released via GLFW
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
@@ -152,7 +188,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	if (action == GLFW_PRESS)
 		keys[key] = true;
 	else if (action == GLFW_RELEASE)
+	{
 		keys[key] = false;
+		key1[key] = true;
+	}
+		
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
@@ -177,6 +217,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	camera.ProcessMouseScroll(yoffset);
 }
+
+
 
 #pragma endregion
 
