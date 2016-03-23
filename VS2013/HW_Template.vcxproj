@@ -51,12 +51,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\ThirdParty\Simple OpenGL Image Library;..\ThirdParty\assimp-3.2;../ThirdParty/glew;../ThirdParty/glm;../ThirdParty/glfw;../ThirdParty/cimg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ThirdParty\bullet3-2.83.7\src;..\ThirdParty\Simple OpenGL Image Library;..\ThirdParty\assimp-3.2;../ThirdParty/glew;../ThirdParty/glm;../ThirdParty/glfw;../ThirdParty/cimg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\ThirdParty\Simple OpenGL Image Library\projects\VC9\Debug;..\ThirdParty\assimp-3.2\build\code\Debug;../ThirdParty/glew;../ThirdParty/glfw/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glew32.lib;glfw3.lib;kernel32.lib;assimp-vc120-mtd.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glew32.lib;glfw3.lib;kernel32.lib;assimp-vc120-mtd.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SOIL.lib;..\ThirdParty\bullet3-2.83.7\bin\BulletDynamics_vs2010_debug.lib;..\ThirdParty\bullet3-2.83.7\bin\BulletCollision_vs2010_debug.lib;..\ThirdParty\bullet3-2.83.7\bin\LinearMath_vs2010_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -1,0 +1,11 @@
+﻿Build started 2016-03-17 23:53:18.
+     1>Project "C:\Users\Win\Documents\bullet3-2.83.7\build3\vs2010\App_BasicExample.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\bin\App_BasicExample_vs2010_debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Win\Documents\bullet3-2.83.7\bin" ..\..\bin\BulletDynamics_vs2010_debug.lib ..\..\bin\BulletCollision_vs2010_debug.lib ..\..\bin\LinearMath_vs2010_debug.lib Bullet3Common_vs2010_debug.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\bin\App_BasicExample_vs2010_debug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\bin\App_BasicExample_vs2010_debug.lib" /MACHINE:X86 obj\x32\Debug\App_BasicExample\BasicExample.obj
+         obj\x32\Debug\App_BasicExample\main.obj
+         App_BasicExample.vcxproj -> C:\Users\Win\Documents\bullet3-2.83.7\build3\vs2010\..\..\bin\App_BasicExample_vs2010_debug.exe
+     1>Done Building Project "C:\Users\Win\Documents\bullet3-2.83.7\build3\vs2010\App_BasicExample.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.46

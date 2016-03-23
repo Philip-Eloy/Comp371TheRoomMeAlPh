@@ -25,6 +25,8 @@
 #include "Shader.h"
 #include "Thing.h"
 
+#include "btBulletDynamicsCommon.h"
+
 
 //using namespace std;
 

@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<DEFECTS><DEFECT><SFA><FILEPATH>c:\users\win\documents\bullet3-2.83.7\examples\sharedmemory\</FILEPATH><FILENAME>posixsharedmemory.cpp</FILENAME><LINE>78</LINE><COLUMN>4</COLUMN></SFA><DEFECTCODE>6340</DEFECTCODE><DESCRIPTION>Mismatch on sign: 'int' passed as _Param_(2) when some unsigned type is required in call to 'printf'.</DESCRIPTION><FUNCTION>PosixSharedMemory::allocateSharedMemory</FUNCTION><DECORATED>?allocateSharedMemory@PosixSharedMemory@@UAEPAXHH_N@Z</DECORATED><FUNCLINE>53</FUNCLINE><PATH/></DEFECT></DEFECTS>
